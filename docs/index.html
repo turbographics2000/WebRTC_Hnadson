@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>WebRTC Hands-On 2016</title>
+    <style>
+        #logList .item {
+            overflow: hidden;
+        }
+        #logList .item.log {
+            background: rgb(28, 247, 82);
+            margin: 2px 0;
+            border-radius: 3px;
+        }
+        #logList .item.neg {
+            background: rgb(43, 28, 247);
+            color:white;
+        }
+        #logList .item.warn {
+            background: rgb(214, 247, 28);
+        }
+        #logList .item.error {
+            background: rgb(247, 28, 28);
+            color:white;
+        }
+        #logList .time {
+            width: 150px;
+            float: left;
+        }
+        #logList .msg {
+            word-wrap: none;
+            text-overflow: ellipsis;
+            width: calc(100% - 150px);
+            white-space: nowrap;
+            overflow: hidden;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+WebRTC Hands-On 2016<br />
+<button type="button" onclick="startVideo();">Start Video</button>
+<button type="button" onclick="connect();">Connect</button>
+<button type="button" onclick="hangUp();">Hang Up</button>
+<div>
+    <video id="local_video" autoplay muted=true style="width: 160px; height: 120px; border: 1px solid black;"></video>
+    <video id="remote_video" autoplay style="width: 160px; height: 120px; border: 1px solid black;"></video>
+</div>
+<p>SDP to send:<br />
+    <textarea id="text_for_send_sdp" rows="5" cols="60" readonly="readonly">SDP to send</textarea>
+</p>
+<p>SDP to receive:&nbsp;
+    <button type="button" onclick="onSdpText();">Receive remote SDP</button><br />
+    <textarea id="text_for_receive_sdp" rows="5" cols="60"></textarea>
+</p>
+
+<div id="logList" style="border: 1px solid"></div>
+<script type='text/javascript' src='./webrtc.js'></script>
+
+
+</body>
+</html>
